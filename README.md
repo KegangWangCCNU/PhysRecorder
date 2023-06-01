@@ -59,3 +59,13 @@ The above video was recorded using PhysRecorder and saved in the Example folder.
 Visualize them:  
 ![image](https://github.com/KegangWangCCNU/PICS/blob/main/BVP.jpg)  
 The BVP waveforms extracted from different video formats are shown from top to bottom, and it can be seen that the H264 format causes significant damage to physiological signals.  
+
+## Precautions:
+To ensure high synchronization, higher device performance is required.
+* For RGBA or I420 formats, make sure the hard drive has sufficient write performance. 
+* For PNGS format, ensure that the CPU has enough core numbers to compress in parallel. 
+* For H264 format, the CPU performance should be as high as possible. Cisco's encoder will automatically adapt to the CPU. If the performance is insufficient, compression rate will decrease.   
+
+
+Recommended configuration: 8-core or higher CPU and SSD hard drive.   
+**It is strongly discouraged to use USB portable hard drives!**
