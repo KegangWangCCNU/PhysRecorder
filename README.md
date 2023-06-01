@@ -2,7 +2,7 @@
 A tool for recording high availability rPPG datasets.  
 
 ## Setup  
-First, you need to run Contec SpO2 Assistant and connect to the device via HID (currently not supporting devices with COM ports). When the SpO2 Assistant displays waveforms, PhysRecorder can synchronize and read waveform data.  
+First, you need to run Contec SpO2 Assistant and connect to the device via HID (currently not supporting devices with COM ports). When the SpO2 Assistant displays waveforms, PhysRecorder can Synchronously read waveform data.  
 
 ![image](https://github.com/KegangWangCCNU/PICS/blob/main/Contec%20CMS50E.jpg)  
 
@@ -25,6 +25,8 @@ The user interface has multiple options for selection, allowing users to determi
   * `PNGS` Lossless compression, like RGBA, does not lose information but has a much smaller size. 
 
 ## File structure  
+
+To view examples, please download the `Example` folder.
 
 ```
 Root
