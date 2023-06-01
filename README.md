@@ -54,7 +54,7 @@ For the collected single video, you can use `inference.py` in PhysBench to extra
 
 ## Use Seq-rPPG to extract BVP signals from Example  
 ![image](https://github.com/KegangWangCCNU/PICS/blob/main/ME.gif)  
-The above video was recorded using PhysRecorder and saved in the Example folder. To extract the BVP signal using PhysBench, use the following command:   
+The above video was recorded using PhysRecorder and saved in the `Example` folder. To extract the BVP signal using PhysBench, use the following command:   
 `python inference.py --video face.avi --out BVP.csv`  
 Visualize them:  
 ![image](https://github.com/KegangWangCCNU/PICS/blob/main/BVP.jpg)  
