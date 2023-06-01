@@ -52,7 +52,7 @@ Root
 If you have collected your own dataset, it is recommended to use PhysBench for training and testing. See https://github.com/KegangWangCCNU/PhysBench  
 For the collected single video, you can use `inference.py` in PhysBench to extract BVP signals. 
 
-## Use Seq-rPPG to extract BVP signals from Example  
+## Use Seq-rPPG to extract BVP signals from the Example  
 ![image](https://github.com/KegangWangCCNU/PICS/blob/main/ME.gif)  
 The above video was recorded using PhysRecorder and saved in the `Example` folder. To extract the BVP signal using PhysBench, use the following command:   
 `python inference.py --video face.avi --out BVP.csv`  
