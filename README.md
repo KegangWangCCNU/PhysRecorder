@@ -33,7 +33,7 @@ Root
 ├── p001
     ├── v01                      
         ├── pictures_ZIP_RAW_RGB    # PNGS format.
-            ├── 00000000.png        # PNG lossless format.
+            ├── 00000000.png        # PNG lossless pictures.
             ├── 00000001.png
             ├── ...
         ├── video_ZIP_H264.avi      # H264 format.
