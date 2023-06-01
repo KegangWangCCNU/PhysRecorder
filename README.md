@@ -2,7 +2,7 @@
 A tool for recording high availability rPPG datasets, lossless and highly synchronized. This tool aims to guide researchers in collecting high-value rPPG datasets. In past dataset works, some studies lacked attention to signal synchronization and compression formats, making their collected datasets unsuitable for training and only suitable as test sets, which limited the use of the datasets. It is hoped that this program can help everyone quickly and cost-effectively solve this problem.
 
 ## Setup  
-First, you need to run Contec SpO2 Assistant and connect to the device via HID (currently not supporting devices with COM ports). When the SpO2 Assistant displays waveforms, PhysRecorder can Synchronously read waveform data.  
+First, you need to run Contec SpO2 Assistant and connect to the device via HID (currently not supporting devices with COM ports). When the SpO2 Assistant displays waveforms, PhysRecorder can synchronously read waveform data.  
 
 ![image](https://github.com/KegangWangCCNU/PICS/blob/main/Contec%20CMS50E.jpg)  
 
