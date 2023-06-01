@@ -53,3 +53,6 @@ If you have collected your own dataset, it is recommended to use PhysBench for t
 For the collected single video, you can use `inference.py` in PhysBench to extract BVP signals. 
 
 ## Use Seq-rPPG to extract BVP signals from Example  
+![image](https://github.com/KegangWangCCNU/PICS/blob/main/ME.gif)  
+
+![image](https://github.com/KegangWangCCNU/PICS/blob/main/BVP.gif)  
