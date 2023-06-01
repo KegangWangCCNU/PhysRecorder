@@ -68,4 +68,18 @@ To ensure high synchronization, higher device performance is required.
 
 
 Recommended configuration: 8-core or higher CPU and SSD hard drive.   
-**It is strongly discouraged to use USB portable hard drives!**
+**It is strongly discouraged to use USB portable hard drives!**  
+
+## Citation  
+
+If you use PhysRecorder, please cite the following <a href="https://github.com/KegangWangCCNU/PICS/raw/main/PhysBench.pdf" target="_blank">paper</a>
+```
+@misc{wang2023physbench,
+      title={PhysBench: A Benchmark Framework for Remote Physiological Sensing with New Dataset and Baseline}, 
+      author={Kegang Wang and Yantao Wei and Mingwen Tong and Jie Gao and Yi Tian and YuJian Ma and ZhongJin Zhao},
+      year={2023},
+      eprint={2305.04161},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
