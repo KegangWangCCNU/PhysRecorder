@@ -5,6 +5,9 @@ A tool for recording high availability rPPG datasets, lossless and highly synchr
 First, you need to run Contec SpO2 Assistant and connect to the device via HID (currently not supporting devices with COM ports). When the SpO2 Assistant displays waveforms, PhysRecorder can synchronously read waveform data.  
 
 ![image](https://github.com/KegangWangCCNU/PICS/blob/main/Contec%20CMS50E.jpg)  
+## Requirments
+`pip install-r requirements.txt` (python 3.6)  
+For other python environments (like python 3.8), the `hid` package may not be installed successfully. You may need to install it mannually and put the hid.pyd (`hid.cp38-win_amd64.pyd` for example) file with `main.py` as a module. The details of installation could refer to [hidapi 0.14.0](https://pypi.org/project/hidapi/#install).
 
 ## Setting  
 The user interface has multiple options for selection, allowing users to determine the recording duration, video resolution, camera transmission format, and file storage format. At the top are three indicator icons for users to confirm the BVP signal reading status, camera signal reading status, and recording status.  
