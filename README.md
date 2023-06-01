@@ -47,3 +47,9 @@ Root
     ├── ... 
 ├── ...
 ```
+
+## Compatible with PhysBench  
+If you have collected your own dataset, it is recommended to use PhysBench for training and testing. See https://github.com/KegangWangCCNU/PhysBench  
+For the collected single video, you can use `inference.py` in PhysBench to extract BVP signals. 
+
+## Use Seq-rPPG to extract BVP signals from Example  
