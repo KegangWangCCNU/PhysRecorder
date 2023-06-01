@@ -1,0 +1,4 @@
+cam model: 罗技高清网络摄像机 C930c
+cam codec: YUY2
+size: 640x480
+date: 2023-06-01 11:30:49
