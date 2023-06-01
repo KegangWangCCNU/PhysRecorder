@@ -30,7 +30,7 @@ The user interface has multiple options for selection, allowing users to determi
 Root
 ├── p001
     ├── v01                      
-        ├── pictures_ZIP_RAW_RGB    # Raw RGB video.
+        ├── pictures_ZIP_RAW_RGB    # PNGS format.
             ├── 00000000.png        # PNG lossless format.
             ├── 00000001.png
             ├── ...
