@@ -1,5 +1,5 @@
 # PhysRecorder
-A tool for recording high availability rPPG datasets.  
+A tool for recording high availability rPPG datasets, lossless and highly synchronized.  
 
 ## Setup  
 First, you need to run Contec SpO2 Assistant and connect to the device via HID (currently not supporting devices with COM ports). When the SpO2 Assistant displays waveforms, PhysRecorder can Synchronously read waveform data.  
@@ -54,5 +54,8 @@ For the collected single video, you can use `inference.py` in PhysBench to extra
 
 ## Use Seq-rPPG to extract BVP signals from Example  
 ![image](https://github.com/KegangWangCCNU/PICS/blob/main/ME.gif)  
-
-![image](https://github.com/KegangWangCCNU/PICS/blob/main/BVP.gif)  
+The above video was recorded using PhysRecorder and saved in the Example folder. To extract the BVP signal using PhysBench, use the following command:   
+`python inference.py --video face.avi --out BVP.csv`  
+Visualize them:  
+![image](https://github.com/KegangWangCCNU/PICS/blob/main/BVP.jpg)  
+The BVP waveforms extracted from different video formats are shown from top to bottom, and it can be seen that the H264 format causes significant damage to physiological signals.  
