@@ -2,7 +2,7 @@
 A tool for recording high availability rPPG datasets, lossless and highly synchronized. This tool aims to guide researchers in collecting high-value rPPG datasets. In past dataset works, some studies lacked attention to signal synchronization and compression formats, making their collected datasets unsuitable for training and only suitable as test sets, which limited the use of the datasets. It is hoped that this program can help everyone quickly and cost-effectively solve this problem.
 
 ## Requirments  
-### We recommend using our packaged .exe executable file, which can be run by double-clicking on it in the Windows operating system.  
+### We recommend using our packaged .exe executable file, which can be run by double-clicking in the Windows operating system.  
 If you need to run from source code, please refer to the following:  
 `pip install -r requirements.txt` (python 3.6)  
 For other python environments (like python 3.8), the `hid` package may not be installed successfully. You may need to install it mannually and put the hid.pyd (`hid.cp38-win_amd64.pyd` for example) file with `main.py` as a module. The details of installation could refer to [hidapi 0.14.0](https://pypi.org/project/hidapi/#install).
