@@ -87,15 +87,25 @@ def connect_cms50e():
             h = hid.device()
             h.open(vid, pid)
             while (0, 0) != (vid, pid) and alive:
-                recv = h.read(6)
-                #print([chr(i) for i in recv])
-                #print(recv)
-                if recv[:2] == [235, 0]:
-                    bvp.append((recv[3], time.time()))
-                if recv[:3] == [235, 1, 5]:
-                    hr.append((recv[3], time.time()))
-                if recv[:3] == [235, 1, 5]:
-                    spo2.append((recv[4], time.time()))
+                recv = h.read(30)
+                msgs = []
+                for i in recv:
+                    if i == 235:
+                        msgs.append([])
+                        continue
+                    msgs[-1].append(i)
+                t = time.time()
+                for i in msgs:
+                    if i[:1] == [0]:
+                        _1 = (i[2], t)
+                        if not bvp or t>bvp[-1][-1]:
+                            bvp.append(_1)
+                    if i[:2] == [1, 5]:
+                        _2, _3 = (i[2], t), (i[3], t)
+                        if not hr or t>hr[-1][-1]:
+                            hr.append(_2)
+                        if not spo2 or t>spo2[-1][-1]:
+                            spo2.append(_3)
                 if len(bvp)>100:
                     bvp.pop(0)
                 if len(hr)>100:
