@@ -89,17 +89,19 @@ def connect_cms50e():
             while (0, 0) != (vid, pid) and alive:
                 recv = h.read(30)
                 msgs = []
+                t = time.time()
                 for i in recv:
                     if i == 235:
                         msgs.append([])
                         continue
                     msgs[-1].append(i)
-                t = time.time()
                 for i in msgs:
                     if i[:1] == [0]:
                         _1 = (i[2], t)
                         if not bvp or t>bvp[-1][-1]:
                             bvp.append(_1)
+                        if bvp and t==bvp[-1][-1]:
+                            bvp[-1] = _1
                     if i[:2] == [1, 5]:
                         _2, _3 = (i[2], t), (i[3], t)
                         if not hr or t>hr[-1][-1]:
