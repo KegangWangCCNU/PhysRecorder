@@ -72,8 +72,10 @@ def connect_cam():
 
 
 def connect_cms50e():
-    global bvp
+    global bvp, hr, spo2
     bvp = []
+    hr = []
+    spo2 = []
     while alive:
         try:
             vid, pid = 0, 0
@@ -88,11 +90,18 @@ def connect_cms50e():
                 recv = h.read(6)
                 #print([chr(i) for i in recv])
                 #print(recv)
-                if recv[:2] != [235, 0]:
-                    continue
-                bvp.append((recv[3], time.time()))
+                if recv[:2] == [235, 0]:
+                    bvp.append((recv[3], time.time()))
+                if recv[:3] == [235, 1, 5]:
+                    hr.append((recv[3], time.time()))
+                if recv[:3] == [235, 1, 5]:
+                    spo2.append((recv[4], time.time()))
                 if len(bvp)>100:
                     bvp.pop(0)
+                if len(hr)>100:
+                    hr.pop(0)
+                if len(spo2)>100:
+                    spo2.pop(0)
         except Exception as e:
             print(e)
         finally:
@@ -170,10 +179,10 @@ def write(x):
     cv2.imwrite(x[1], x[0], [cv2.IMWRITE_PNG_COMPRESSION, 1])
 
 def record():
-    global bvp, frames, recording, start_time,end_time, f_n, dir_path
+    global bvp, hr, spo2, frames, recording, start_time,end_time, f_n, dir_path
     f_n, dir_path = 0, ''
     start_time = 0
-    bvp, frames = bvp[-1:], frames[-1:]
+    bvp, hr, spo2, frames = bvp[-1:], hr[-1:], spo2[-1:], frames[-1:]
     if not os.path.exists(text1.get()):
         os.mkdir(text1.get())
     dir_path_ = f'{text1.get()}/{text2.get()}'
@@ -233,8 +242,10 @@ def record():
             writers.append(writer)
         if not save_fourcc:
             return
-        with open(f'{dir_path}/BVP.csv', 'w') as f_bvp,  open(f'{dir_path}/frames_timestamp.csv', 'w') as f_frames:
+        with open(f'{dir_path}/BVP.csv', 'w') as f_bvp, open(f'{dir_path}/HR.csv', 'w') as f_hr, open(f'{dir_path}/SpO2.csv', 'w') as f_spo2,  open(f'{dir_path}/frames_timestamp.csv', 'w') as f_frames:
             f_bvp.write('timestamp,bvp\n')
+            f_hr.write('timestamp,hr\n')
+            f_spo2.write('timestamp,spo2\n')
             f_frames.write('frame,timestamp\n')
             start_time = time.time()
             end_time = float(dur)+start_time if int(dur) else 10**15
@@ -242,13 +253,17 @@ def record():
                 t = time.time()
                 if frames[-1][-1] >= end_time:
                     f = lambda x:x[-1]<end_time
-                    bvp_, frames_ = list(filter(f, bvp[:-1])), list(filter(f, frames[:-1]))
+                    bvp_, hr_, spo2_, frames_ = list(filter(f, bvp[:-1])), list(filter(f, hr[:-1])), list(filter(f, spo2[:-1])), list(filter(f, frames[:-1]))
                     recording = False
                 else:
-                    bvp_, frames_ = bvp[:-1], frames[:-1]
-                    bvp, frames = bvp[len(bvp_):], frames[len(frames_):]
+                    bvp_, hr_, spo2_, frames_ = bvp[:-1], hr[:-1], spo2[:-1], frames[:-1]
+                    bvp, hr, spo2, frames = bvp[len(bvp_):], hr[len(hr_):], spo2[len(spo2_):], frames[len(frames_):]
                 for b,ts in bvp_:
                     f_bvp.write(f'{ts},{b}\n')
+                for h,ts in hr_:
+                    f_hr.write(f'{ts},{h}\n')
+                for s,ts in spo2_:
+                    f_spo2.write(f'{ts},{s}\n')
                 f_ = [i[0] for i in frames_]
                 for i in video_outs:
                     tasks.append(pool.submit(i, f_))
