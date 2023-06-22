@@ -47,6 +47,8 @@ Root
         ├── video_RAW_I420.avi      # YUV420 lossless format.
         ├── video_RAW_RGBA.avi      # RGBA lossless format.
         ├── BVP.csv                 # BVP wavefrom with UNIX timestamps.
+        ├── HR.csv                  # Heart rate with UNIX timestamps.
+        ├── SpO2.csv                # Blood oxygen saturation level (SpO2) with UNIX timestamps.
         ├── frames_timestamp.csv    # UNIX timestamps for each frame.
         ├── info.txt                # Information related to video recording.
         ├── missed_frames.csv       # If all frames are written correctly to the file, it is empty. 
