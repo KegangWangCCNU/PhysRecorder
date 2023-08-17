@@ -28,7 +28,8 @@ The user interface has multiple options for selection, allowing users to determi
   * `I420` Store video in YUV420 format, although there is no compression, some chroma information is discarded, and the degree of damage to physiological signals is small.  
   * `RGBA` Without any compression, all information is preserved, resulting in a larger file size. 
   * `MJPG` Moderate compression ratio, moderate damage to physiological signals.
-  * `PNGS` Lossless compression, like RGBA, does not lose information but has a much smaller size. 
+  * `PNGS` Lossless compression, like RGBA, does not lose information but has a much smaller size.  
+  * `FFV1` Lossless compression, the compression rate is higher than `PNGS`, requiring the FFV1 decoder.  
 
 ## File structure  
 
@@ -46,6 +47,7 @@ Root
         ├── video_ZIP_MJPG.avi      # MJPG format.
         ├── video_RAW_I420.avi      # YUV420 lossless format.
         ├── video_RAW_RGBA.avi      # RGBA lossless format.
+        ├── video_ZIP_RAW_BGRA.avi  # FFV1 lossless format.
         ├── BVP.csv                 # BVP wavefrom with UNIX timestamps.
         ├── HR.csv                  # Heart rate with UNIX timestamps.
         ├── SpO2.csv                # Blood oxygen saturation level (SpO2) with UNIX timestamps.
@@ -70,9 +72,10 @@ The BVP waveforms extracted from different video formats are shown from top to b
 
 ## Precautions:
 To ensure high synchronization, higher device performance is required.
-* For RGBA or I420 formats, make sure the hard drive has sufficient write performance. 
-* For PNGS format, ensure that the CPU has enough core numbers to compress in parallel. 
-* For H264 format, the CPU performance should be as high as possible. Cisco's encoder will automatically adapt to the CPU. If the performance is insufficient, compression rate will decrease.   
+* For RGBA, I420, FFV1, PNGS formats, make sure the hard drive has sufficient write performance.   
+* For PNGS, FFV1 formats, ensure that the CPU has enough core numbers to compress in parallel.   
+* For H264 format, the CPU performance should be as high as possible. Cisco's encoder will automatically adapt to the CPU. If the performance is insufficient, compression rate will decrease.
+* For the rPPG task, it is recommended to use the YUY2 webcam codec, 480p resolution, and FFV1 video format.  
 
 
 Recommended configuration: 8-core or higher CPU and SSD hard drive.   
