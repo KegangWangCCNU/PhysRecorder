@@ -231,6 +231,8 @@ def record():
                 p = f'{dir_path}/video_RAW_RGBA.avi'
             if i=='MJPG':
                 p = f'{dir_path}/video_ZIP_MJPG.avi'
+            if i=='FFV1':
+                p = f'{dir_path}/video_ZIP_RAW_BGRA.avi'
             if i=='PNGS':
                 png = f'{dir_path}/pictures_ZIP_RAW_RGB/'
                 if not os.path.exists(png):
@@ -324,7 +326,7 @@ sel4 = tk.Radiobutton(window, text='MJPG', variable=v2, value='MJPG')
 sel4.place(x=5, y=240+diff)
 sel5 = tk.Radiobutton(window, text='YUY2', variable=v2, value='YUY2')
 sel5.place(x=65, y=240+diff)
-sel4.select()
+sel5.select()
 
 lb12 = tk.Label(window, text='file codec', font=('Times',15))
 lb12.place(x=0, y=260+diff)
@@ -333,17 +335,20 @@ ck2_v = tk.StringVar()
 ck3_v = tk.StringVar()
 ck4_v = tk.StringVar()
 ck5_v = tk.StringVar()
+ck6_v = tk.StringVar()
 ck1 = tk.Checkbutton(window, text='H264', onvalue='avc1', offvalue='', variable=ck1_v)
 ck2 = tk.Checkbutton(window, text='I420', onvalue='I420', offvalue='', variable=ck2_v)
 ck3 = tk.Checkbutton(window, text='RGBA', onvalue='RGBA', offvalue='', variable=ck3_v)
 ck4 = tk.Checkbutton(window, text='MJPG', onvalue='MJPG', offvalue='', variable=ck4_v)
 ck5 = tk.Checkbutton(window, text='PNGS', onvalue='PNGS', offvalue='', variable=ck5_v)
+ck6 = tk.Checkbutton(window, text='FFV1', onvalue='FFV1', offvalue='', variable=ck6_v)
 ck1.place(x=5, y=280+diff)
 ck2.place(x=65, y=280+diff)
 ck3.place(x=125, y=280+diff)
 ck4.place(x=5, y=300+diff)
 ck5.place(x=65, y=300+diff)
-ck1.select()
+ck6.place(x=125, y=300+diff)
+ck6.select()
 
 def f_lb():
     global res, fourcc, fps, save_fourcc, cam_id
@@ -375,7 +380,7 @@ def f_lb():
             fps = 10
         if res == [640, 480]:
             fps = 30
-    save_fourcc = [i for i in (ck1_v.get(), ck2_v.get(), ck3_v.get(), ck4_v.get(), ck5_v.get()) if i]
+    save_fourcc = [i for i in (ck1_v.get(), ck2_v.get(), ck3_v.get(), ck4_v.get(), ck5_v.get(), ck6_v.get()) if i]
     window.after(100, f_lb)
 f_lb()
 if __name__ == '__main__':
