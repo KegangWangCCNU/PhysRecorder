@@ -85,12 +85,13 @@ Recommended configuration: 8-core or higher CPU and SSD hard drive.
 
 If you use PhysRecorder, please cite the following <a href="https://github.com/KegangWangCCNU/PICS/raw/main/PhysBench.pdf" target="_blank">paper</a>
 ```
-@misc{wang2023physbench,
-      title={PhysBench: A Benchmark Framework for Remote Physiological Sensing with New Dataset and Baseline}, 
-      author={Kegang Wang and Yantao Wei and Mingwen Tong and Jie Gao and Yi Tian and YuJian Ma and ZhongJin Zhao},
-      year={2023},
+@misc{wang2024camerabasedhrvpredictionremote,
+      title={Camera-Based HRV Prediction for Remote Learning Environments}, 
+      author={Kegang Wang and Yantao Wei and Jiankai Tang and Yuntao Wang and Mingwen Tong and Jie Gao and Yujian Ma and Zhongjin Zhao},
+      year={2024},
       eprint={2305.04161},
       archivePrefix={arXiv},
-      primaryClass={cs.CV}
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2305.04161}, 
 }
 ```
